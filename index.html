@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Asteroid Storm</title>
+        <link rel="stylesheet" href="style/main.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="ast-icon.ico">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.js"></script>
+        <script src="scripts/phaser.js"></script>
+        <script src="app.js"></script>
+        <script src="controllers/MainController.js"></script>
+        <script src="controllers/LoginController.js"></script>
+        <script src="controllers/GameController.js"></script>
+    </head>
+  <body ng-app="asteroidApp">
+    <div class="topBar">
+        <h2 class="topTitle">AS</h2>
+        <nav>
+            <ul>
+                <li><a href="#game" class="nounderline">The game</a></li>
+                <li><a class="nounderline">Scores</a></li>
+                <li><a class="nounderline">About</a></li>
+                <li style="float: right"><a href="#login" class="nounderline">Login</a></li>
+                <li style="float: right"><a class="nounderline">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+      <div ng-view></div>
+  </body>
+</html>

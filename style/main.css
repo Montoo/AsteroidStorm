@@ -1,0 +1,101 @@
+@font-face {
+    font-family: eurof35;
+    src: url("../resources/fonts/eurof35.ttf");
+}
+
+@font-face {
+    font-family: ralewayThinBody;
+    src: url("../resources/fonts/raleway_thin_body.ttf");
+}
+
+@font-face {
+    font-family: greyscaleBasic;
+    src: url("../resources/fonts/greyscale_basic_regular.ttf");
+}
+body {
+    margin: 0;
+    background: #18121c;
+}
+
+nav {
+    font-family: greyscaleBasic;
+    background-color: #1C1925;
+    margin-top: -4vh;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 45%;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1C1925;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-bottom: 1px solid #1C1925;
+    transition: 200ms ease-in-out;
+}
+
+.nounderline{text-decoration: none}
+
+.nounderline:active{text-decoration: none}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    border-bottom: 1px solid #4CA5A9;
+    color: #4CA5A9;
+    text-decoration: none;
+    transition: 300ms ease-in-out;
+}
+
+.topBar {
+    position: fixed;
+    width: 100%;
+    height: 5vh;
+    background-color: #1C1925;
+    color: #ffffff;
+    z-index: 100;
+    margin-top: -20px;
+}
+
+.topTitle {
+    font-family: eurof35;
+    margin: 0;
+    width: 50px;
+}
+#header {
+    font-size: 3em;
+    text-align: center;
+    background: url("../resources/images/galaxy-background.jpeg");
+    height: 100vh;
+    margin-top: 0;
+    color: #ffffff;
+    /*box-shadow: 0 7px 21px 0 rgba(0,0,0,0.75);*/
+}
+
+
+.headerTitle {
+    position: relative;
+    top: 45vh;
+    font-family: eurof35;
+}
+
+.gameWrapper {
+  position: relative;
+  left: 100px;
+  background: black;
+}
+
+.headerTitle2 {
+  height: 100px;
+  color: #fff;
+}
