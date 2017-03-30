@@ -1,18 +1,36 @@
-app.factory('LoginFactory', function (username, password){
-    var loginCheck = false;
+app.factory('LoginFactory', function ($cookies){
+    var loginCheck = "false";
     var currentUser = {};
 
-    var jsonObject = localStorage.getItem(username);
-    currentUser = JSON.parse(jsonObject);
+    function loginUser(username, password) {
+        var jsonObject = localStorage.getItem(username);
+        currentUser = JSON.parse(jsonObject);
+        $cookies.put('user', jsonObject);
+        if (password === currentUser.password) {
+            loginCheck = "true";
+            if(loginCheck === "true") {
+                console.log("Succesvol ingelogd");
 
-    if(password === currentUser.password) {
-        console.log("Succesvol ingelogd");
-        loginCheck = true;
+            }
+        }
+        else {
+            console.log("Authentication Failed!");
+            loginCheck = "false";
+            currentUser = {}
+        }
+    }
+
+    function getLoginCheck() {
         return loginCheck;
     }
-    else {
-        console.log("Authentication Failed!");
-        loginCheck = false;
+
+
+    return {
+        loginUser: loginUser,
+        getLoginCheck: getLoginCheck,
+        loginCheck: loginCheck,
+        currentUser: currentUser
+
     }
-    return loginCheck;
+
 });

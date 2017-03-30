@@ -1,6 +1,14 @@
-app.directive('gameDirective', function($injector) {
+app.directive('gameDirective', function($injector, LoginFactory, $cookies) {
         var linkFn = function(scope, ele, attrs) {
-            createGame(scope, scope.players, scope.mapId, $injector);
+            if(localStorage.getItem("highscores") === null) {
+                var highscores = [];
+                localStorage.setItem("highscores", JSON.stringify(highscores));
+            }
+
+            var jsonObject = $cookies.get('user');
+            var user = JSON.parse(jsonObject);
+            console.log(user.username);
+            createGame(scope, user, scope.mapId, $injector);
         };
 
         return {

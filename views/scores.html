@@ -1,3 +1,41 @@
-<div class="col-md-6 col-offset-3 aboutContainer">
-    <h1>{{title}}</h1>
+<div class="col-md-10 col-md-offset-1 scoresContainer">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Highscores</h3>
+                <div class="pull-right">
+							<span class="clickable filter" ng-click="showScores" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-filter"></i>
+							</span>
+                </div>
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control" id="dev-table-filter" ng-model="searchScore" placeholder="Filter Highscores" />
+            </div>
+            <table class="table table-hover" id="dev-table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>
+                        <a ng-click="sortType = 'username'; sortReverse = !sortReverse">
+                            Username
+                        </a>
+                            <span ng-show="sortType == 'username' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'username' && sortReverse" class="fa fa-caret-up"></span>
+                    </th>
+                    <th><a ng-click="sortType = 'score'; sortReverse = !sortReverse">
+                        Score
+                    </a></th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="score in scoreSet | orderBy:sortType:sortReverse | filter:searchScore">
+                <tr>
+                    <td>{{$index + 1}}</td>
+                    <td>{{score.username}}</td>
+                    <td>{{score.score}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

@@ -9,6 +9,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-cookies.js"></script>
         <script src="app.js"></script>
         <script src="factories/RegisterFactory.js"></script>
         <script src="factories/LoginFactory.js"></script>
@@ -23,14 +24,14 @@
         <script src="directives/gameDirective.js"></script>
     </head>
   <body ng-app="asteroidApp">
-    <div class="col-md-12 topBar">
-        <h2 class="topTitle"><a href="#!/">{{check}}</a></h2>
+    <div class="col-md-12 topBar" ng-controller="MainController">
+        <h2 class="topTitle"><a href="#!/">{{loginCheck}}</a></h2>
         <nav>
             <ul>
                 <li><a href="#!/game" class="nounderline">The game</a></li>
                 <li><a href="#!/scores" class="nounderline">Scores</a></li>
                 <li><a href="#!/about" class="nounderline">About</a></li>
-                <li style="float: right"><a href="#!/login" ng-hide="loginCheck" class="nounderline">Login</a></li>
+                <li style="float: right"><a href="#!/login" ng-hide="LoginFactory.loginCheck" class="nounderline">Login</a></li>
                 <li style="float: right"><a href="#!/register" class="nounderline">Register</a></li>
             </ul>
         </nav>

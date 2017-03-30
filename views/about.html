@@ -1,3 +1,11 @@
 <div class="col-md-6 col-offset-3 aboutContainer" >
-    <h1>{{title}}</h1>
+    <div ng-controller="FirstCtrl">
+    <input type="text" ng-model="Data.FirstName"><!-- Input entered here -->
+    <br>Input is : <strong>{{Data.FirstName}}</strong><!-- Successfully updates here -->
+</div>
+<hr>
+<div ng-controller="SecondCtrl">
+    Input should also be here: {{Data.FirstName}}<!-- How do I automatically updated it here? -->
+</div>
+
 </div>

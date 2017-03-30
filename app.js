@@ -1,4 +1,16 @@
-var app = angular.module("asteroidApp", ['ngRoute']);
+var app = angular.module("asteroidApp", ['ngRoute', 'ngCookies']);
+
+app.factory('Data', function(){
+    return { FirstName: '' };
+});
+
+app.controller('FirstCtrl', function( $scope, Data ){
+    $scope.Data = Data;
+});
+
+app.controller('SecondCtrl', function( $scope, Data ){
+    $scope.Data = Data;
+});
 
 app.config(['$routeProvider', function($routeProvider, $locationProvider) {
         $routeProvider

@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope){
+app.controller('MainController', function($scope, LoginFactory){
   $scope.title = "The best game in the world!";
-  $scope.check = LoginFactory;
+  $scope.loginCheck = LoginFactory.loginCheck;
 });

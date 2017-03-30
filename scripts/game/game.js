@@ -1,4 +1,4 @@
-window.createGame = function(scope, players, mapId, injector) {
+window.createGame = function(scope, playerObject, mapId, injector) {
     var height  = 600,
         width   = 800;
     var game = new Phaser.Game(width, height, Phaser.AUTO, 'gameWrapper', { preload: preload, create: create, update: update });
@@ -11,9 +11,15 @@ window.createGame = function(scope, players, mapId, injector) {
     var background;
     var logo;
     var startButton;
+    var userString;
+    var userText;
     var score = 0;
     var scoreString;
     var scoreText;
+    var scoreObject = {
+        username: '',
+        score: ''
+    }
     function create() {
         var world = game.world;
         //BACKGROUND
@@ -28,6 +34,10 @@ window.createGame = function(scope, players, mapId, injector) {
         //SCORE
         scoreString = 'Score : ';
         scoreText = game.add.text(10, 10, scoreString + score, { font: '34px Arial', fill: '#fff' });
+
+        //USER
+        userString = playerObject.username;
+        userText = game.add.text(400, 10, userString, { font: '34px Arial', fill: '#fff' });
     }
 
     function update() {
@@ -43,6 +53,13 @@ window.createGame = function(scope, players, mapId, injector) {
         console.log("Test");
     }
     scope.$on('$destroy', function() {
+        scoreObject.username = userString;
+        scoreObject.score = score;
+        var highScores = JSON.parse(localStorage.getItem("highscores"));
+        highScores.push(scoreObject);
+        localStorage.setItem("highscores", JSON.stringify(highScores));
+
+
         game.destroy(); // Clean up the game when we leave this scope
         console.log("Destroy test");
     });

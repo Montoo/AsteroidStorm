@@ -1,10 +1,12 @@
-app.controller("LoginController", function($scope, LoginFactory) {
+app.controller("LoginController", function($scope, LoginFactory, $location) {
 
     $scope.username = "";
     $scope.password = "";
 
     $scope.login = function() {
-       return LoginFactory($scope.username, $scope.password);
+       if(LoginFactory.loginUser($scope.username, $scope.password)) {
+           //$location.path(' #!/');
+       }
     };
 });
 
