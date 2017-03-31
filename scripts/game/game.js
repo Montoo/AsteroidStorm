@@ -60,7 +60,8 @@ window.createGame = function(scope, playerObject, mapId, injector, playerFilter)
             highScores.push(scoreObject);
             localStorage.setItem("highscores", JSON.stringify(highScores));
         }
-        playerFilter(userString);
+        localStorage.setItem("achievementList", JSON.stringify(playerFilter(userString, score)));
+
 
         game.destroy(); // Clean up the game when we leave this scope
         console.log("Destroy test");

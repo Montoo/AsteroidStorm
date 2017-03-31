@@ -1,17 +1,17 @@
-<div class="col-md-6 col-md-offset-3 achievementsContainer" >
+<div class="col-md-6 col-md-offset-3 achievementsContainer" ng-controller="AchievementController" >
     <div class="userContainer">
         <h1 class="achievementsTitle">User</h1>
         <br>
-        <h3>Name</h3>
-        <h3>Heighest Score: </h3>
+        <h3>{{user.firstName + " " + user.lastName}}</h3>
+        <h3>Heighest Score: {{highestScore}} </h3>
     </div>
     <br>
     <div class="goalContainer">
         <h1 class="achievementsTitle">Achievements</h1>
         <br>
-        <h3> Get 100 points: </h3>
-        <h3> Get 1000 points: </h3>
-        <h3> Get 10000 points: </h3>
+        <h3> Get 100 points: {{a1}} </h3>
+        <h3> Get 1000 points: {{a2}}</h3>
+        <h3> Get 10000 points: {{a3}} </h3>
     </div>
 
 </div>
