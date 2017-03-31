@@ -1,4 +1,4 @@
-app.directive('gameDirective', function($injector, LoginFactory, $cookies) {
+app.directive('gameDirective', function($injector, LoginFactory, $cookies, PlayerFilter) {
         var linkFn = function(scope, ele, attrs) {
             if(localStorage.getItem("highscores") === null) {
                 var highscores = [];
@@ -8,7 +8,7 @@ app.directive('gameDirective', function($injector, LoginFactory, $cookies) {
             var jsonObject = $cookies.get('user');
             var user = JSON.parse(jsonObject);
             console.log(user.username);
-            createGame(scope, user, scope.mapId, $injector);
+            createGame(scope, user, scope.mapId, $injector, PlayerFilter);
         };
 
         return {

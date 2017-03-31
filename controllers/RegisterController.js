@@ -1,4 +1,4 @@
-app.controller("RegisterController", function ($scope) {
+app.controller("RegisterController", function ($scope, $location) {
     $scope.username = "";
     $scope.password = "";
     $scope.firstName = "";
@@ -6,8 +6,11 @@ app.controller("RegisterController", function ($scope) {
 
     $scope.register = function() {
         registerFunction($scope.username, $scope.password, $scope.firstName, $scope.lastName);
-        var o = localStorage.getItem($scope.username);
-        var i = JSON.parse(o);
-        console.log(i.username);
+        var userList = JSON.parse(localStorage.getItem("userList"));
+
+        userList.forEach(function (e) {
+            console.log(e.username);
+        });
+        $location.path("#!/login");
     }
 });

@@ -1,8 +1,13 @@
 app.factory("RegisterFactory", registerFunction);
 
 var registerFunction= function(usn, pass, firstn, lastn) {
+    if(localStorage.getItem("userList") === null) {
+        var userList = [];
+        localStorage.setItem("userList", JSON.stringify(userList));
+    }
+
     var user = {
-        username: "test123",
+        username: "",
         password: "",
         firstName: "",
         lastName: ""
@@ -13,7 +18,13 @@ var registerFunction= function(usn, pass, firstn, lastn) {
     user.firstName = firstn;
     user.lastName = lastn;
 
-    var JSONUser = JSON.stringify(user);
+    userList = JSON.parse(localStorage.getItem("userList"));
 
-    localStorage.setItem(user.username, JSONUser);
+    userList.push(user);
+
+    var JSONUser = JSON.stringify(userList);
+
+    localStorage.setItem("userList", JSONUser);
+
+
 };

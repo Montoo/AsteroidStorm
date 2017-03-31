@@ -1,22 +1,28 @@
 app.factory('LoginFactory', function ($cookies){
-    var loginCheck = "false";
+    var loginCheck = false;
     var currentUser = {};
 
     function loginUser(username, password) {
-        var jsonObject = localStorage.getItem(username);
-        currentUser = JSON.parse(jsonObject);
-        $cookies.put('user', jsonObject);
+        var userList = JSON.parse(localStorage.getItem("userList"));
+
+        userList.forEach(function (e) {
+           if(username === e.username) {
+               currentUser = e;
+               $cookies.put('user', JSON.stringify(currentUser));
+           }
+        });
         if (password === currentUser.password) {
-            loginCheck = "true";
+            loginCheck = true;
             if(loginCheck === "true") {
                 console.log("Succesvol ingelogd");
-
+                return loginCheck
             }
         }
         else {
             console.log("Authentication Failed!");
-            loginCheck = "false";
-            currentUser = {}
+            loginCheck = false;
+            currentUser = {};
+            return loginCheck;
         }
     }
 

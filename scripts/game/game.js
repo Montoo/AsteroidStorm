@@ -1,4 +1,4 @@
-window.createGame = function(scope, playerObject, mapId, injector) {
+window.createGame = function(scope, playerObject, mapId, injector, playerFilter) {
     var height  = 600,
         width   = 800;
     var game = new Phaser.Game(width, height, Phaser.AUTO, 'gameWrapper', { preload: preload, create: create, update: update });
@@ -53,12 +53,14 @@ window.createGame = function(scope, playerObject, mapId, injector) {
         console.log("Test");
     }
     scope.$on('$destroy', function() {
-        scoreObject.username = userString;
-        scoreObject.score = score;
-        var highScores = JSON.parse(localStorage.getItem("highscores"));
-        highScores.push(scoreObject);
-        localStorage.setItem("highscores", JSON.stringify(highScores));
-
+        if(score > 0) {
+            scoreObject.username = userString;
+            scoreObject.score = score;
+            var highScores = JSON.parse(localStorage.getItem("highscores"));
+            highScores.push(scoreObject);
+            localStorage.setItem("highscores", JSON.stringify(highScores));
+        }
+        playerFilter(userString);
 
         game.destroy(); // Clean up the game when we leave this scope
         console.log("Destroy test");

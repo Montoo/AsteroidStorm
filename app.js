@@ -31,9 +31,9 @@ app.config(['$routeProvider', function($routeProvider, $locationProvider) {
                 templateUrl: 'views/scores.html',
                 controller: 'ScoresController'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'AboutController'
+            .when('/achievements', {
+                templateUrl: 'views/achievements.html',
+                controller: 'AchievementController'
             })
             .when('/', {
                 templateUrl: 'views/home.html',
