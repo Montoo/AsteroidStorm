@@ -7,6 +7,7 @@ app.controller("LoginController", function($scope, LoginFactory, $location) {
        if(LoginFactory.loginUser($scope.username, $scope.password)) {
            //$location.path(' #!/');
        }
+       console.log("test");
     };
 });
 

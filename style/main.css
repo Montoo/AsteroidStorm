@@ -203,4 +203,8 @@ tr:nth-child(uneven){background-color: #1c1925}
     color: #fff;
 }
 
+#rf {
+    display: none;
+}
+
 

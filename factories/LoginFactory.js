@@ -24,6 +24,8 @@ app.factory('LoginFactory', function ($cookies){
             currentUser = {};
             return loginCheck;
         }
+
+        return loginCheck;
     }
 
     function getLoginCheck() {

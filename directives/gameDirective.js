@@ -1,7 +1,10 @@
 app.directive('gameDirective', function($injector, LoginFactory, $cookies, $filter) {
         var linkFn = function(scope, ele, attrs) {
             if(localStorage.getItem("highscores") === null) {
-                var highscores = [];
+                var highscores = [{
+                    username: 'Test',
+                    score: '1337'
+                }];
                 localStorage.setItem("highscores", JSON.stringify(highscores));
             }
 
