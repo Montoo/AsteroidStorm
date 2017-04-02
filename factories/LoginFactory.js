@@ -8,6 +8,9 @@ app.factory('LoginFactory', function ($cookies){
         userList.forEach(function (e) {
            if(username === e.username) {
                currentUser = e;
+               if($cookies.get('user') !== null) {
+                   $cookies.remove('user');
+               }
                $cookies.put('user', JSON.stringify(currentUser));
            }
         });

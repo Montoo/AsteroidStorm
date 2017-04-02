@@ -5,7 +5,7 @@ app.controller("LoginController", function($scope, LoginFactory, $location) {
 
     $scope.login = function() {
        if(LoginFactory.loginUser($scope.username, $scope.password)) {
-           //$location.path(' #!/');
+           $location.path(' #!/');
        }
        console.log("test");
     };
